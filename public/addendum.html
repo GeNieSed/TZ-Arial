@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Добавление сотрудника</title>
+  </head>
+  <body>
+    <style>
+      #notification {
+        display: none;
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        padding: 15px;
+        background-color: #4caf50;
+        color: white;
+        border-radius: 5px;
+        font-size: 16px;
+        z-index: 1000;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+      }
+    </style>
+    <h2>Добавление нового сотрудника</h2>
+    <form id="addEmployeeForm">
+      <section>
+        <label for="surname">Фамилия</label>
+        <input type="text" id="surname" required />
+      </section>
+      <section>
+        <label for="name">Имя</label>
+        <input type="text" id="name" required />
+      </section>
+      <section>
+        <label for="patronymic">Отчество</label>
+        <input type="text" id="patronymic" required />
+      </section>
+      <section>
+        <label for="phoneNumber">Номер телефона</label>
+        <input type="text" id="phoneNumber" required />
+      </section>
+      <section>
+        <label for="address">Адрес</label>
+        <input type="text" id="address" required />
+      </section>
+      <section>
+        <label for="passport">Паспорт (Серия и номер)</label>
+        <input type="text" id="passport" required />
+      </section>
+      <section>
+        <label for="postTitle">Должность</label>
+        <select id="postTitle" required>
+          <option value="Верстальщик">Верстальщик</option>
+          <option value="Дизайнер">Дизайнер</option>
+          <option value="Администратор">Администратор</option>
+          <option value="Тимлид">Тимлид</option>
+          <option value="Тестировщик">Тестировщик</option>
+        </select>
+      </section>
+      <section>
+        <label for="deportamentTitle">Отдел</label>
+        <select id="deportamentTitle" required>
+          <option value="Дизайн">Дизайн</option>
+          <option value="Разработка технических продуктов">
+            Разработка технических продуктов
+          </option>
+          <option value="Тестировка">Тестировка</option>
+          <option value="Разработка мобильных приложений">
+            Разработка мобильных приложений
+          </option>
+          <option value="Продажи">Продажи</option>
+        </select>
+      </section>
+      <section>
+        <label for="statusTitle">Статус</label>
+        <select id="statusTitle" required>
+          <option value="Работает">Работает</option>
+          <option value="Отпуск">Отпуск</option>
+          <option value="Больничный">Больничный</option>
+          <option value="Уволен">Уволен</option>
+        </select>
+      </section>
+      <section>
+        <label for="patch">Зарплата</label>
+        <input type="number" id="patch" required />
+      </section>
+      <button type="submit">Добавить сотрудника</button>
+    </form>
+    <div id="notification">Сотрудник успешно добавлен</div>
+    <script src="https://unpkg.com/imask"></script>
+    <script src="/add.js"></script>
+  </body>
+</html>

@@ -1,0 +1,14 @@
+:root {
+  /* text */
+  --prymary-color-text-black: #434343;
+  --prymary-color-text-white: #ffffff;
+
+  /* color */
+  --secondary-color: #9197b3;
+  --secondary-color-background-dark: #111827;
+  --secondary-color-background-white: #ffffff;
+  --prymary-color-accent: #1f5ce1;
+  --prymary-color-border: #d0d5dd;
+  --prymary-color-accent-dark: #194fc3;
+  --prymary-color-accent-hover: #bacdf5;
+}

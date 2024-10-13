@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Редактировать сотрудника</title>
+  </head>
+  <body>
+    <h1>Редактировать сотрудника</h1>
+
+    <form id="employeeForm">
+      <label for="surname">Фамилия:</label>
+      <input type="text" id="surname" placeholder="Фамилия" required /><br />
+
+      <label for="name">Имя:</label>
+      <input type="text" id="name" placeholder="Имя" required /><br />
+
+      <label for="patronymic">Отчество:</label>
+      <input type="text" id="patronymic" placeholder="Отчество" /><br />
+
+      <label for="phoneNumber">Телефон:</label>
+      <input type="text" id="phoneNumber" placeholder="Телефон" /><br />
+
+      <label for="address">Адрес:</label>
+      <input type="text" id="address" placeholder="Адрес" /><br />
+
+      <label for="passport">Паспорт:</label>
+      <input type="text" id="passport" placeholder="Паспорт" /><br />
+
+      <label for="postTitle">Должность:</label>
+      <input type="text" id="postTitle" placeholder="Должность" /><br />
+
+      <label for="departmentTitle">Отдел:</label>
+      <input type="text" id="departmentTitle" placeholder="Отдел" /><br />
+
+      <label for="statusTitle">Статус:</label>
+      <input type="text" id="statusTitle" placeholder="Статус" /><br />
+
+      <label for="patch">Зарплата:</label>
+      <input type="number" id="patch" placeholder="Зарплата" /><br />
+
+      <button type="button" id="updateButton">Изменить</button>
+    </form>
+
+    <p id="message" style="color: rgb(99, 152, 45)"></p>
+    <span>
+      Внимание, информация о сотруднике появляется не сразу, т.к используется
+      async
+    </span>
+    <br />
+    <span>
+      После обнвления сотрудника, перейдите на главную страницу и обновите ее,
+      чтобы таблица отобразилась
+    </span>
+    <br />
+    <span>
+      К сожалению, пыдающий список не работает, так как не получилось передавать
+      коректные значения
+    </span>
+    <script src="https://unpkg.com/imask"></script>
+    <script src="/edit.js"></script>
+  </body>
+</html>

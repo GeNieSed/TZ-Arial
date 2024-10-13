@@ -1,0 +1,98 @@
+@import url(../veriables/color.css);
+* {
+  margin: 0px;
+  padding: 0px;
+}
+.input {
+  display: flex;
+  padding: 10px 14px;
+  align-items: center;
+  gap: 8px;
+  align-self: stretch;
+  border-radius: 4px;
+  border: 1px solid var(--prymary-color-border);
+  font-size: var(--font-size-t2);
+  color: var(--prymary-color-text-black);
+  font-family: var(--font-family-t);
+  line-height: var(--line-height-t2);
+}
+.primary-button {
+  display: flex;
+  padding: 16px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  align-self: stretch;
+  border-radius: 8px;
+  background: var(--prymary-color-accent);
+  border: none;
+  color: var(--prymary-color-text-white);
+  font-size: var(--font-size-h3);
+  font-family: var(--font-family-h3-4);
+  font-weight: var(--font-weight-600);
+  line-height: var(--line-height-h3);
+  cursor: pointer;
+  transition: 0.3s;
+  margin-top: 40px;
+}
+.primary-button:hover {
+  background-color: #194fc3;
+}
+.outline-button {
+  display: flex;
+  padding: 10px 14px;
+  align-items: center;
+  gap: 8px;
+  border-radius: 4px;
+  border: 1px solid var(--prymary-color-border);
+  background: var(--secondary-color-background-white);
+}
+.secondary-button {
+  display: flex;
+  padding: 12px 24px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 8px 0px 0px 8px;
+  background: var(--prymary-color-accent);
+  font-size: var(--font-size-t1);
+  color: var(--prymary-color-text-white);
+  font-family: var(--font-family-t);
+  line-height: var(--line-height-t1);
+}
+.secondary-button-icon {
+  display: flex;
+  width: 50px;
+  height: 50px;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border-radius: 0px 8px 8px 0px;
+  background: var(--prymary-color-accent);
+}
+.svg-function {
+  display: flex;
+  padding: 10px 10px;
+  align-items: center;
+  border-radius: 4px;
+  border: 1px solid var(--prymary-color-border);
+}
+.popup {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background: rgba(106, 106, 106, 0.5);
+  backdrop-filter: blur(3.5px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.popup .content {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  padding: 24px;
+  background-color: var(--secondary-color-background-white);
+  width: 576px;
+  border-radius: 8px;
+}

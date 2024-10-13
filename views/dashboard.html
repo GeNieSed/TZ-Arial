@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Панель управления</title>
+    <script src="/script.js"></script>
+    <link rel="stylesheet" href="/components/blocks/blocks.css" />
+    <link rel="stylesheet" href="/components/blocks/text.css" />
+    <link rel="stylesheet" href="/components/veriables/font.css" />
+    <link rel="stylesheet" href="/dashboard.css" />
+  </head>
+  <body>
+    <div id="notification" style="display:none; position:fixed; top:20px; right:20px; padding:10px; background-color:green; color:white; border-radius:5px; z-index:1000;">Уведомление</div>
+    <div class="navigation">
+      <div class="logo"><img src="img/logo.svg" alt="" /></div>
+      <nav>
+        <div class="contant"><span>Сотрудники</span></div>
+      </nav>
+    </div>
+    <main>
+      <div class="header">
+        <div class="texting">
+          <h4>Анна Александровна</h4>
+          <div class="line"></div>
+          <span>Отдел кадров</span>
+        </div>
+        <img src="img/user.jpg" alt="" class="user" />
+      </div>
+      <div class="heading">
+        <h2>Сотрудники</h2>
+
+          </div>
+        </div>
+      </div>
+      <div class="filterrs">
+        <div class="filterr">
+          <input
+            type="text"
+            class="search font-size-t2"
+            id="search-input"
+            placeholder="Введите ФИО сотрудника"
+            title="После ввода нажмите на«Enter»"
+          />
+          <form class="dropdown">
+            <select id="status" class="input">
+              <option>Все</option>
+              <option>Работает</option>
+              <option>Отпуск</option>
+              <option>Больничный</option>
+              <option>Уволен</option>
+            </select>
+          </form>
+        </div>
+        <div class="buttons">
+          <a href="/addendum.html">
+            <div class="secondary-buttons">
+              <div class="secondary-button">Добавить пользователя</div>
+              <div class="secondary-button-icon">             <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g id="stroke-icon/">
+                  <path
+                    id="Vector"
+                    d="M20.0306 9.53068L12.5306 17.0307C12.4609 17.1004 12.3782 17.1557 12.2871 17.1935C12.1961 17.2312 12.0985 17.2506 11.9999 17.2506C11.9014 17.2506 11.8038 17.2312 11.7127 17.1935C11.6217 17.1557 11.539 17.1004 11.4693 17.0307L3.9693 9.53068C3.82857 9.38995 3.74951 9.19907 3.74951 9.00005C3.74951 8.80103 3.82857 8.61016 3.9693 8.46943C4.11003 8.32869 4.30091 8.24963 4.49993 8.24963C4.69895 8.24963 4.88982 8.32869 5.03055 8.46943L11.9999 15.4397L18.9693 8.46943C19.039 8.39974 19.1217 8.34447 19.2128 8.30676C19.3038 8.26904 19.4014 8.24963 19.4999 8.24963C19.5985 8.24963 19.6961 8.26904 19.7871 8.30676C19.8781 8.34447 19.9609 8.39974 20.0306 8.46943C20.1002 8.53911 20.1555 8.62183 20.1932 8.71288C20.2309 8.80392 20.2503 8.9015 20.2503 9.00005C20.2503 9.0986 20.2309 9.19618 20.1932 9.28722C20.1555 9.37827 20.1002 9.46099 20.0306 9.53068Z"
+                    fill="white"
+                  />
+                </g>
+              </svg></div>
+            </div>
+          </a>
+ 
+          </div>
+      </div>
+      <div class="table-container">
+      <table>
+        <thead>
+          <tr id="heading-table">
+            <th class="title" id="one">Режим управления</th>
+            <th class="title" id="two">Номер</th>
+            <th class="title" id="three">Фамилия</th>
+            <th class="title" id="four">Имя</th>
+            <th class="title" id="five">Отчество</th>
+            <th class="title" id="six">Должность</th>
+            <th class="title" id="seven">Статус</th>
+            <th class="title" id="eintin">Зарплата</th>
+          </tr>
+        </thead>
+          <tbody id="data-table"></tbody> 
+      </table>
+      </div>
+    </main>
+  </body>
+</html>

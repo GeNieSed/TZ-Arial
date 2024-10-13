@@ -1,0 +1,70 @@
+@import url(../veriables/font.css);
+h1 {
+  font-size: var(--font-size-h1);
+  color: var(--prymary-color-text-black);
+  font-family: var(--font-family-h1-2);
+  font-weight: var(--font-weight-700);
+  line-height: var(--line-height-h1);
+}
+
+h2 {
+  font-size: var(--font-size-h2);
+  color: var(--prymary-color-text-black);
+  font-family: var(--font-family-h1-2);
+  font-weight: var(--font-weight-700);
+  line-height: var(--line-height-h2);
+}
+
+h3 {
+  font-size: var(--font-size-h3);
+  color: var(--prymary-color-text-black);
+  font-family: var(--font-family-h3-4);
+  font-weight: var(--font-weight-600);
+  line-height: var(--line-height-h3);
+}
+
+h4 {
+  font-size: var(--font-size-h4);
+  color: var(--prymary-color-text-black);
+  font-family: var(--font-family-h3-4);
+  font-weight: var(--font-weight-600);
+  line-height: var(--line-height-h4);
+}
+.font-size-t1 {
+  font-size: var(--font-size-t1);
+  color: var(--prymary-color-text-black);
+  font-family: var(--font-family-t);
+  line-height: var(--line-height-t1);
+}
+
+.font-size-t2,
+.font-size-t2-sb {
+  font-size: var(--font-size-t2);
+  color: var(--prymary-color-text-black);
+  font-family: var(--font-family-t);
+  line-height: var(--line-height-t2);
+}
+.font-size-t2-sb {
+  font-weight: var(--font-weight-600);
+}
+
+p {
+  font-size: var(--font-size-t1);
+  color: var(--prymary-color-text-black);
+  font-family: var(--font-family-t);
+  line-height: var(--line-height-t1);
+}
+
+span {
+  font-size: var(--font-size-t2);
+  color: var(--prymary-color-text-black);
+  font-family: var(--font-family-t);
+  line-height: var(--line-height-t2);
+}
+a {
+  font-size: var(--font-size-t2);
+  color: var(--prymary-color-text-black);
+  font-family: var(--font-family-t);
+  line-height: var(--line-height-t2);
+  text-decoration: none;
+}

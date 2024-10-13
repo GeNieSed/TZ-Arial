@@ -1,0 +1,197 @@
+@import url(../veriables/font.css);
+body {
+  display: flex;
+  height: 100vh;
+}
+.navigation {
+  display: flex;
+  flex-direction: column;
+  padding-block: 26px;
+  gap: 60px;
+  background-color: var(--secondary-color-background-dark);
+}
+.logo {
+  padding-inline: 26px;
+}
+.contant {
+  padding-inline: 26px;
+  padding-block: 16px;
+  border-left: 6px solid var(--prymary-color-accent);
+  background: rgba(255, 255, 255, 0.05);
+  display: flex;
+}
+main {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  gap: 40px;
+  height: 100vh;
+}
+.contant span {
+  color: var(--secondary-color-background-white);
+}
+.header {
+  display: flex;
+  gap: 20px;
+  padding-inline: 16px;
+  align-items: center;
+  justify-content: end;
+}
+.header .texting {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.line {
+  width: 60%;
+  height: 1px;
+  background-color: var(--prymary-color-accent);
+}
+.user {
+  height: 50px;
+  border-radius: 100%;
+}
+.heading {
+  display: flex;
+  justify-content: space-between;
+  padding-inline: 26px;
+}
+.secondary-buttons {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+.buttons {
+  display: flex;
+  gap: 16px;
+}
+.search {
+  display: flex;
+  width: 489px;
+  padding: 10px 14px;
+  justify-content: space-between;
+  gap: 8px;
+  border-radius: 4px;
+  border: 1px solid var(--prymary-color-border);
+}
+.filterrs {
+  display: flex;
+  justify-content: space-between;
+  padding-inline: 16px;
+}
+.filterr {
+  display: flex;
+  gap: 16px;
+}
+.function-table {
+  display: flex;
+  gap: 16px;
+}
+table {
+  font-size: var(--font-size-t2);
+  color: var(--prymary-color-text-black);
+  font-family: var(--font-family-t);
+  line-height: var(--line-height-t2);
+  padding-inline: 26px;
+  overflow-y: hidden;
+  height: 780px;
+}
+td,
+th {
+  padding-block: 16px;
+  padding-inline: 10px;
+}
+
+table .title {
+  display: flex;
+}
+thead tr {
+  display: flex;
+  justify-content: space-between;
+}
+
+tbody tr {
+  display: flex;
+  justify-content: space-between;
+}
+.title#one,
+tbody tr td:nth-child(1) {
+  flex: 0 0 173px;
+}
+
+.title#two,
+tbody tr td:nth-child(2) {
+  flex: 0 0 65px;
+}
+
+.title#three,
+tbody tr td:nth-child(3) {
+  flex: 0 0 146px;
+}
+
+.title#four,
+tbody tr td:nth-child(4) {
+  flex: 0 0 126px;
+}
+.title#five,
+tbody tr td:nth-child(5) {
+  flex: 0 0 183px;
+}
+.title#six,
+tbody tr td:nth-child(6) {
+  flex: 0 0 190px;
+}
+.data-table {
+  max-height: 100%;
+}
+.title#seven,
+tbody tr td:nth-child(7) {
+  flex: 0 0 175px;
+}
+
+.title#eintin,
+tbody tr td:nth-child(8) {
+  flex: 0 0 89px;
+}
+
+tbody tr {
+  border-top: 1px solid var(--secondary-color);
+}
+.information {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.table-container {
+  max-height: 100%;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  padding-inline: 10px;
+}
+
+thead,
+tbody {
+  display: block;
+}
+
+.edit-button {
+  display: flex;
+  padding: 6px 14px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  align-self: stretch;
+  border-radius: 4px;
+  border: 1px solid var(--secondary-color);
+  background: var(--secondary-color-background-white);
+  transition: 0.3s;
+}
+.edit-button:hover {
+  background-color: var(--prymary-color-accent-hover);
+}
+.edit-button:disabled {
+  border: 1px solid var(--prymary-color-border);
+}
