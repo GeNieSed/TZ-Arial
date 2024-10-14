@@ -34,14 +34,8 @@
         </div>
       </div>
       <div class="filterrs">
-        <div class="filterr">
-          <input
-            type="text"
-            class="search font-size-t2"
-            id="search-input"
-            placeholder="Введите ФИО сотрудника"
-            title="После ввода нажмите на«Enter»"
-          />
+        <div class="filter">
+          <input type="text" class="search font-size-t2" id="search-input" placeholder="Введите ФИО сотрудника" title="После ввода нажмите на «Enter»" />
           <form class="dropdown">
             <select id="status" class="input">
               <option>Все</option>
@@ -51,7 +45,28 @@
               <option>Уволен</option>
             </select>
           </form>
+          <form class="dropdown">
+            <select id="department" class="input">
+              <option>Все</option>
+              <option>Дизайн</option>
+              <option>Разработка технических продуктов</option>
+              <option>Тестировка</option>
+              <option>Разработка мобильных приложений</option>
+              <option>Продажи</option>
+            </select>
+          </form>
+          <form class="dropdown">
+            <select id="post" class="input">
+              <option>Все</option>
+              <option>Верстальщик</option>
+              <option>Дизайнер</option>
+              <option>Администратор</option>
+              <option>Тимлид</option>
+              <option>Тестировщик</option>
+            </select>
+          </form>
         </div>
+        
         <div class="buttons">
           <a href="/addendum.html">
             <div class="secondary-buttons">
@@ -85,9 +100,13 @@
             <th class="title" id="three">Фамилия</th>
             <th class="title" id="four">Имя</th>
             <th class="title" id="five">Отчество</th>
-            <th class="title" id="six">Должность</th>
-            <th class="title" id="seven">Статус</th>
-            <th class="title" id="eintin">Зарплата</th>
+            <th class="title" id="six">Номер телефона</th>
+            <th class="title" id="seven">Адрес</th>
+            <th class="title" id="eintin">Паспорт</th>
+            <th class="title" id="nine">Должность</th>
+            <th class="title" id="ten">Отдел</th>
+            <th class="title" id="elevent">Статус</th>
+            <th class="title" id="twelve">Зарплата</th>
           </tr>
         </thead>
           <tbody id="data-table"></tbody> 

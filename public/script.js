@@ -1,21 +1,29 @@
 document.addEventListener("DOMContentLoaded", async () => {
   const dataTable = document.getElementById("data-table");
-  const searchInput = document.getElementById("search-input"); // Поле ввода для поиска
-  const statusSelect = document.getElementById("status"); // Выпадающий список для статуса
+  const searchInput = document.getElementById("search-input");
+  const statusSelect = document.getElementById("status");
+  const departmentSelect = document.getElementById("department");
+  const postSelect = document.getElementById("post");
 
-  // Функция для загрузки данных сотрудников
-  async function fetchData(query = "", status = "") {
+  async function fetchData(
+    query = "",
+    status = "",
+    department = "",
+    post = ""
+  ) {
     try {
-      let url = "/api/data"; // базовый URL
+      let url = "/api/data";
 
-      // Определяем URL для поиска или фильтрации
       if (query) {
         url = `/api/search?fio=${encodeURIComponent(query)}`;
-      } else if (status) {
-        url = `/api/filter?status=${encodeURIComponent(status)}`;
+      } else if (status || department || post) {
+        url = `/api/filter?status=${encodeURIComponent(
+          status
+        )}&department=${encodeURIComponent(
+          department
+        )}&post=${encodeURIComponent(post)}`;
       }
 
-      // Делаем запрос к сформированному URL
       const response = await fetch(url);
       const data = await response.json();
 
@@ -24,22 +32,23 @@ document.addEventListener("DOMContentLoaded", async () => {
       data.forEach((item, number) => {
         const tr = document.createElement("tr");
         tr.innerHTML = `
-                  <td>
-            <button class="edit-button" data-id="${item.ID_employee}" ${
-          item.status === "Уволен" ? "disabled" : ""
-        }>Редактировать</button>
-          </td>
+          <td><button class="edit-button" data-id="${item.ID_employee}" ${
+          item.statusTitle === "Уволен" ? "disabled" : ""
+        }>Редактировать</button></td>
           <td>${number + 1}</td>
           <td>${item.surname}</td>
           <td>${item.name}</td>
           <td>${item.patronymic}</td>
-          <td>${item.title}</td>
-          <td class="status">${item.status}</td>
-          <td>${item.patch}</td>
+          <td>${item.phoneNumber || ""}</td>
+          <td>${item.address || ""}</td>
+          <td>${item.passport || ""}</td>
+          <td>${item.postTitle || ""}</td>
+          <td>${item.departmentTitle || ""}</td>
+          <td>${item.statusTitle || ""}</td>
+          <td>${item.patch || ""}</td>
         `;
 
-        // Если статус "Уволен", окрашиваем строку в красный цвет
-        if (item.status === "Уволен") {
+        if (item.statusTitle === "Уволен") {
           tr.style.color = "red";
         }
 
@@ -62,28 +71,33 @@ document.addEventListener("DOMContentLoaded", async () => {
     });
   }
 
-  // Обработчик для поиска по ФИО
   searchInput.addEventListener("keypress", (event) => {
     if (event.key === "Enter") {
       const query = searchInput.value.trim();
-      fetchData(query); // Передаем query, оставляя статус пустым
+      fetchData(query);
     }
   });
 
-  // Обработчик для фильтрации по статусу
   statusSelect.addEventListener("change", () => {
     const selectedStatus = statusSelect.value;
-    fetchData("", selectedStatus); // Передаем статус, оставляя query пустым
+    const selectedDepartment = departmentSelect.value;
+    const selectedPost = postSelect.value;
+    fetchData("", selectedStatus, selectedDepartment, selectedPost);
   });
-  // Обработчик для фильтрации по статусу
-  statusSelect.addEventListener("change", () => {
+
+  departmentSelect.addEventListener("change", () => {
     const selectedStatus = statusSelect.value;
-    if (selectedStatus === "Все") {
-      fetchData(); // Загружаются все сотрудники
-    } else {
-      fetchData("", selectedStatus); // Фильтрация по выбранному статусу
-    }
+    const selectedDepartment = departmentSelect.value;
+    const selectedPost = postSelect.value;
+    fetchData("", selectedStatus, selectedDepartment, selectedPost);
   });
-  // Загрузка всех данных при инициализации
+
+  postSelect.addEventListener("change", () => {
+    const selectedStatus = statusSelect.value;
+    const selectedDepartment = departmentSelect.value;
+    const selectedPost = postSelect.value;
+    fetchData("", selectedStatus, selectedDepartment, selectedPost);
+  });
+
   fetchData();
 });

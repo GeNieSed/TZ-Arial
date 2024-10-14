@@ -36,16 +36,22 @@ app.get("/", (req, res) => {
 app.get("/api/data", (req, res) => {
   const sql = `
     SELECT Employee.ID_employee, Employee.surname, Employee.name, Employee.patronymic, 
-           Post.title, Status.title AS status, Finances.patch
+           Contact.phone_number AS phoneNumber, Contact.address, 
+           Passport.series_numer AS passport, 
+           Post.title AS postTitle, Department.title AS departmentTitle, 
+           Status.title AS statusTitle, Finances.patch
     FROM Employee
     JOIN Post ON Employee.ID_post = Post.ID_post
     JOIN Status ON Employee.ID_status = Status.ID_status
-    JOIN Finances ON Employee.ID_employee = Finances.ID_employee;
+    JOIN Finances ON Employee.ID_employee = Finances.ID_employee
+    JOIN Contact ON Employee.ID_employee = Contact.ID_employee
+    JOIN Passport ON Employee.ID_employee = Passport.ID_employee
+    JOIN Department ON Employee.ID_department = Department.ID_department;
   `;
-  // Проверка на ошибку
+
   db.query(sql, (err, results) => {
     if (err) {
-      console.error(err);
+      console.error("Ошибка загрузки данных из базы данных:", err);
       return res
         .status(500)
         .json({ error: "Ошибка загрузки данных из базы данных" });
@@ -62,7 +68,6 @@ app.get("/api/search", (req, res) => {
 
   const fioParts = fio.split(" ");
   const [surname, name, patronymic] = [
-    //Использование массива, для повышения гибкости поиска
     fioParts[0] || "",
     fioParts[1] || "",
     fioParts[2] || "",
@@ -70,11 +75,13 @@ app.get("/api/search", (req, res) => {
 
   const sql = `
     SELECT Employee.ID_employee, Employee.surname, Employee.name, Employee.patronymic, 
-           Post.title, Status.title AS status, Finances.patch
+           Post.title AS postTitle, Status.title AS statusTitle, 
+           Department.title AS departmentTitle, Finances.patch
     FROM Employee
     JOIN Post ON Employee.ID_post = Post.ID_post
     JOIN Status ON Employee.ID_status = Status.ID_status
     JOIN Finances ON Employee.ID_employee = Finances.ID_employee
+    JOIN Department ON Employee.ID_department = Department.ID_department
     WHERE Employee.surname LIKE ? AND Employee.name LIKE ? AND Employee.patronymic LIKE ?
   `;
 
@@ -93,21 +100,44 @@ app.get("/api/search", (req, res) => {
   );
 });
 
-// Маршрут для фильтрации сотрудников по статусу
+// Маршрут для фильтрации сотрудников по статусу, отделу и должности
 app.get("/api/filter", (req, res) => {
-  const { status } = req.query;
-  const sql = `
+  const { status, department, post } = req.query;
+
+  let sql = `
     SELECT Employee.ID_employee, Employee.surname, Employee.name, Employee.patronymic, 
-           Post.title, Status.title AS status, Finances.patch
+           Post.title AS postTitle, Department.title AS departmentTitle, 
+           Status.title AS statusTitle, Finances.patch
     FROM Employee
     JOIN Post ON Employee.ID_post = Post.ID_post
     JOIN Status ON Employee.ID_status = Status.ID_status
     JOIN Finances ON Employee.ID_employee = Finances.ID_employee
-    ${status ? "WHERE Status.title = ?" : ""}
+    JOIN Department ON Employee.ID_department = Department.ID_department
   `;
-  db.query(sql, status ? [status] : [], (err, results) => {
+
+  const conditions = [];
+  const values = [];
+
+  if (status && status !== "Все") {
+    conditions.push("Status.title = ?");
+    values.push(status);
+  }
+  if (department && department !== "Все") {
+    conditions.push("Department.title = ?");
+    values.push(department);
+  }
+  if (post && post !== "Все") {
+    conditions.push("Post.title = ?");
+    values.push(post);
+  }
+
+  if (conditions.length) {
+    sql += " WHERE " + conditions.join(" AND ");
+  }
+
+  db.query(sql, values, (err, results) => {
     if (err) {
-      console.error(err);
+      console.error("Ошибка при фильтрации данных:", err);
       return res.status(500).json({ error: "Ошибка при фильтрации данных" });
     }
     res.json(results);
