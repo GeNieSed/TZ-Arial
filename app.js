@@ -281,6 +281,7 @@ app.put("/api/employee/:id", (req, res) => {
   db.query(
     sqlUpdate,
     [
+      // Данные
       surname,
       name,
       patronymic,
