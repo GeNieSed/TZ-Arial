@@ -93,102 +93,11 @@ table {
   font-family: var(--font-family-t);
   line-height: var(--line-height-t3);
   padding-inline: 26px;
-  overflow-y: hidden;
-  height: 780px;
-}
-td,
-th {
-  padding-block: 16px;
-  padding-inline: 10px;
-}
-
-table .title {
-  display: flex;
-}
-thead tr {
-  display: flex;
-  justify-content: space-between;
-}
-
-tbody tr {
-  display: flex;
-  justify-content: space-between;
-}
-.title#one,
-tbody tr td:nth-child(1) {
-  flex: 0 0 162px;
-}
-
-.title#two,
-tbody tr td:nth-child(2) {
-  flex: 0 0 55px;
-}
-
-.title#three,
-tbody tr td:nth-child(3) {
-  flex: 0 0 112px;
-}
-
-.title#four,
-tbody tr td:nth-child(4) {
-  flex: 0 0 85px;
-}
-.title#five,
-tbody tr td:nth-child(5) {
-  flex: 0 0 133px;
-}
-.title#six,
-tbody tr td:nth-child(6) {
-  flex: 0 0 140px;
-}
-
-.title#seven,
-tbody tr td:nth-child(7) {
-  flex: 0 0 145px;
-}
-
-.title#eintin,
-tbody tr td:nth-child(8) {
-  flex: 0 0 89px;
-}
-.title#nine,
-tbody tr td:nth-child(9) {
-  flex: 0 0 115px;
-}
-.title#ten,
-tbody tr td:nth-child(10) {
-  flex: 0 0 135px;
-}
-.title#elevent,
-tbody tr td:nth-child(10) {
-  flex: 0 0 165px;
-}
-.data-table {
-  max-height: 100%;
-}
-tbody tr {
-  border-top: 1px solid var(--secondary-color);
-}
-.information {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-.table-container {
-  max-height: 100%;
-}
-
-table {
   width: 100%;
-  border-collapse: collapse;
-  padding-inline: 10px;
 }
-
-thead,
-tbody {
-  display: block;
+td {
+  padding: 6px;
 }
-
 .edit-button {
   display: flex;
   padding: 6px 14px;

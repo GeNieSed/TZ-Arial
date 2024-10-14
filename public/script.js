@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   const departmentSelect = document.getElementById("department");
   const postSelect = document.getElementById("post");
 
+  // Функция для загрузки данных сотрудников
   async function fetchData(
     query = "",
     status = "",
@@ -32,9 +33,11 @@ document.addEventListener("DOMContentLoaded", async () => {
       data.forEach((item, number) => {
         const tr = document.createElement("tr");
         tr.innerHTML = `
-          <td><button class="edit-button" data-id="${item.ID_employee}" ${
+                  <td>
+            <button class="edit-button" data-id="${item.ID_employee}" ${
           item.statusTitle === "Уволен" ? "disabled" : ""
-        }>Редактировать</button></td>
+        }>Редактировать</button>
+          </td>
           <td>${number + 1}</td>
           <td>${item.surname}</td>
           <td>${item.name}</td>
@@ -44,7 +47,7 @@ document.addEventListener("DOMContentLoaded", async () => {
           <td>${item.passport || ""}</td>
           <td>${item.postTitle || ""}</td>
           <td>${item.departmentTitle || ""}</td>
-          <td>${item.statusTitle || ""}</td>
+          <td class="status">${item.statusTitle || ""}</td>
           <td>${item.patch || ""}</td>
         `;
 
@@ -61,6 +64,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
   }
 
+  // Настраиваем кнопки редактирования
   function setupEditButtons() {
     const editButtons = document.querySelectorAll(".edit-button");
     editButtons.forEach((button) => {
@@ -71,6 +75,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     });
   }
 
+  // Обработчики для поиска и фильтрации
   searchInput.addEventListener("keypress", (event) => {
     if (event.key === "Enter") {
       const query = searchInput.value.trim();
@@ -99,5 +104,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     fetchData("", selectedStatus, selectedDepartment, selectedPost);
   });
 
+  // Загрузка данных
   fetchData();
 });

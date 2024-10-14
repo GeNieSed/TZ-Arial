@@ -76,12 +76,16 @@ app.get("/api/search", (req, res) => {
   const sql = `
     SELECT Employee.ID_employee, Employee.surname, Employee.name, Employee.patronymic, 
            Post.title AS postTitle, Status.title AS statusTitle, 
-           Department.title AS departmentTitle, Finances.patch
+           Department.title AS departmentTitle, Finances.patch,
+           Contact.phone_number AS phoneNumber, Contact.address AS address, 
+           Passport.series_numer AS passport
     FROM Employee
     JOIN Post ON Employee.ID_post = Post.ID_post
     JOIN Status ON Employee.ID_status = Status.ID_status
     JOIN Finances ON Employee.ID_employee = Finances.ID_employee
     JOIN Department ON Employee.ID_department = Department.ID_department
+    LEFT JOIN Contact ON Employee.ID_employee = Contact.ID_employee
+    LEFT JOIN Passport ON Employee.ID_employee = Passport.ID_employee
     WHERE Employee.surname LIKE ? AND Employee.name LIKE ? AND Employee.patronymic LIKE ?
   `;
 
@@ -107,12 +111,16 @@ app.get("/api/filter", (req, res) => {
   let sql = `
     SELECT Employee.ID_employee, Employee.surname, Employee.name, Employee.patronymic, 
            Post.title AS postTitle, Department.title AS departmentTitle, 
-           Status.title AS statusTitle, Finances.patch
+           Status.title AS statusTitle, Finances.patch,
+           Contact.phone_number AS phoneNumber, Contact.address AS address, 
+           Passport.series_numer AS passport
     FROM Employee
     JOIN Post ON Employee.ID_post = Post.ID_post
     JOIN Status ON Employee.ID_status = Status.ID_status
     JOIN Finances ON Employee.ID_employee = Finances.ID_employee
     JOIN Department ON Employee.ID_department = Department.ID_department
+    LEFT JOIN Contact ON Employee.ID_employee = Contact.ID_employee
+    LEFT JOIN Passport ON Employee.ID_employee = Passport.ID_employee
   `;
 
   const conditions = [];

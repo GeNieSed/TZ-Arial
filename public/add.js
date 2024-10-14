@@ -1,4 +1,5 @@
 // add.js- добавление новых сотрудников
+//
 const form = document.getElementById("addEmployeeForm");
 const notification = document.getElementById("notification");
 
